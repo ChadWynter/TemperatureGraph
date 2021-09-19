@@ -11,12 +11,12 @@ def get_temp(db):
     return db.child("Temperature").get().val()
 
 def set_temp(db, temp):
-    db.child("Temperature").push(temp)
+    db.child("Temperature").set(temp)
 
 if __name__ == "__main__":
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
     current_temp = get_temp(db)
     print(current_temp)
-    # set_temp(db, 10)
+    set_temp(db, 10)
     
