@@ -1,7 +1,6 @@
 import pyrebase
 from collections import OrderedDict
 import numpy as np
-import datetime
 import time
 
 config = {
