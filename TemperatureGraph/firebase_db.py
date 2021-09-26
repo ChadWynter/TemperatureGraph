@@ -49,8 +49,17 @@ def set_read_temperature_button(db, state):
     
     db.child("ReadTemperatureButton").set(state)
 
+def get_physical_switch_state(db):
+    return db.child("PhysicalSwitch").get().val()
+
+def set_physical_switch_state(db, state):
+    if state != 0 and state != 1:
+        return
+
+    db.child("PhysicalSwitch").set(state)
+
 if __name__ == "__main__":
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
-    print(get_read_temperature_button(db))
+    print(get_physical_switch_state(db))
     
