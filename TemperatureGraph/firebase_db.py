@@ -40,8 +40,17 @@ def push_temperature(db, temp):
         fixed_time_data = OrderedDict(list(time_data.items())[1:])
         db.child("Time").set(fixed_time_data)
 
+def get_read_temperature_button(db):
+    return db.child("ReadTemperatureButton").get().val()
+
+def set_read_temperature_button(db, state):
+    if state != 0 and state != 1:
+        return
+    
+    db.child("ReadTemperatureButton").set(state)
+
 if __name__ == "__main__":
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
-    push_temperature(db, 1)
+    print(get_read_temperature_button(db))
     
