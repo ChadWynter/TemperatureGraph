@@ -33,11 +33,11 @@ def push_temperature(db, temp):
     temp_data, time_data = db.child("Temperature").get().val(), db.child("Time").get().val()
 
     if len(temp_data) > 300:
-        fixed_temp_data = OrderedDict(list(temp_data.items())[1:])
+        fixed_temp_data = OrderedDict(list(temp_data.items())[len(temp_data)-300:])
         db.child("Temperature").set(fixed_temp_data)
 
     if len(time_data) > 300:
-        fixed_time_data = OrderedDict(list(time_data.items())[1:])
+        fixed_time_data = OrderedDict(list(time_data.items())[len(time_data)-300:])
         db.child("Time").set(fixed_time_data)
 
 def get_read_temperature_button(db):
