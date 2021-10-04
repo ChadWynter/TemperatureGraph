@@ -16,6 +16,6 @@ server.login(email, password)
 def send_sms(number, message):
     server.sendmail(email, number, message)
 
-if __name__ == "__main__":
-    send_sms("6125997855@vtext.com", "test123")
+#if __name__ == "__main__":
+#    send_sms("6125997855@vtext.com", "test123")
     
